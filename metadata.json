@@ -1,0 +1,17 @@
+{
+  "name": "Bon Nadal Iturralde Matencio",
+  "description": "Una aplicació interactiva per felicitar el Nadal de part de la família Iturralde Matencio: Javi, Salut, Arlet, Enzo i el nou bebè!",
+  "short_name": "NadalIM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#c53030",
+  "icons": [
+    {
+      "src": "https://picsum.photos/192/192",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "requestFramePermissions": []
+}
