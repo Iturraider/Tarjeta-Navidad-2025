@@ -1,0 +1,1 @@
+// Fitxer de configuració desactivat per tornar a l'estat anterior

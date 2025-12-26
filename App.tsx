@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Snowfall from './components/Snowfall';
 import PuzzleGame from './components/PuzzleGame';
@@ -46,11 +45,11 @@ const App: React.FC = () => {
     const text = `${t.family}: ${customWish}`;
     let shareUrl = window.location.href;
 
-    // Validem si l'URL és vàlid per a la Web Share API (normalment requereix http/https)
+    // Validem si l'URL és vàlid per a la Web Share API
     try {
       const urlObj = new URL(shareUrl);
       if (!['http:', 'https:'].includes(urlObj.protocol)) {
-        shareUrl = ''; // Si no és un URL web estàndard, no l'incloem
+        shareUrl = ''; 
       }
     } catch (e) {
       shareUrl = '';
@@ -66,7 +65,6 @@ const App: React.FC = () => {
       try {
         await navigator.share(shareData);
       } catch (err) {
-        // No registrem error si l'usuari cancel·la l'acció
         if ((err as Error).name !== 'AbortError') {
           console.error('Error sharing:', err);
         }
@@ -217,7 +215,7 @@ const App: React.FC = () => {
                   {copyStatus ? (language === 'ca' ? 'Copiat!' : '¡Copiado!') : t.share}
                 </button>
               </div>
-              <p className="text-slate-400 text-[10px] md:text-xs mt-4 max-w-sm">
+              <p className="text-slate-400 text-[10px] md:text-xs mt-4 max-w-sm mx-auto">
                 {t.welcome2026} 🍼
               </p>
             </div>

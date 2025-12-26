@@ -1,22 +1,21 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useMemo } from 'react';
 
 const Snowfall: React.FC = () => {
-  const [snowflakes, setSnowflakes] = useState<{ id: number; left: string; delay: string; size: string }[]>([]);
-
-  useEffect(() => {
-    const flakes = Array.from({ length: 40 }).map((_, i) => ({
+  const flakes = useMemo(() => {
+    return Array.from({ length: 35 }).map((_, i) => ({
       id: i,
       left: `${Math.random() * 100}vw`,
-      delay: `${Math.random() * 5}s`,
-      size: `${Math.random() * 1 + 0.5}rem`,
+      delay: `${Math.random() * 10}s`,
+      size: `${Math.random() * 0.8 + 0.4}rem`,
+      duration: `${Math.random() * 10 + 10}s`,
+      opacity: Math.random() * 0.4 + 0.2,
     }));
-    setSnowflakes(flakes);
   }, []);
 
   return (
-    <>
-      {snowflakes.map((flake) => (
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      {flakes.map((flake) => (
         <div
           key={flake.id}
           className="snowflake"
@@ -24,13 +23,14 @@ const Snowfall: React.FC = () => {
             left: flake.left,
             animationDelay: flake.delay,
             fontSize: flake.size,
-            animationDuration: `${Math.random() * 3 + 5}s`
+            animationDuration: flake.duration,
+            opacity: flake.opacity
           }}
         >
           ❄
         </div>
       ))}
-    </>
+    </div>
   );
 };
 
